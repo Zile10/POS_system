@@ -1,0 +1,27 @@
+
+.navbar {
+  box-shadow: 0 0 4px 2px black;
+}
+main {
+  min-height: 90vh;
+}
+
+footer {
+  height: 5vh;
+  box-shadow: 0 0 4px 2px black;
+  position: relative;
+  bottom: 0;
+}
+
+.products-grid {
+  width: 80vw;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.products-grid>* {
+  grid-column: span 1;
+  margin: auto;
+}
