@@ -1,33 +1,57 @@
 let productItems;
 
+
+class Product{
+  constructor(config) {
+    itemName = config.itemName
+    price = config.price
+    stock = config.stock
+    imageSrc = config.imageSrc
+  }
+}
+
 if (!localStorage.getItem("products") || localStorage.getItem("products") == '[]') {
   productItems = [
     {
-      item: 'Polka Dot Socks',
+      itemName: 'Polka Dot Socks',
       price: 40,
       stock: 100,
+      imageSrc: './assets/images/happy-socks-big-polka-dots-blue-green-red-white.jpg'
     },
     {
-      item: 'Cat Socks',
+      itemName: 'Cloud Socks',
       price: 40,
       stock: 100,
+      imageSrc: './assets/images/happy-socks-blue-cloud.jpg'
     },
     {
-      item: 'Striped Socks',
+      itemName: 'Cat Socks',
       price: 40,
       stock: 100,
+      imageSrc: './assets/images/happy-socks-cats-black.jpg'
     },
     {
-      item: 'Banana Socks',
+      itemName: 'Striped Socks',
       price: 40,
       stock: 100,
+      imageSrc: './assets/images/happy-socks-stripe-socks.jpg'
     },
     {
-      item: 'Pumpkin Socks',
+      itemName: 'Banana Socks',
       price: 40,
       stock: 100,
+      imageSrc: './assets/images/happy-socks-cyan-banana.webp'
+    },
+    {
+      itemName: 'Frog Socks',
+      price: 40,
+      stock: 100,
+      imageSrc: './assets/images/happy-socks-frogs-black-yellow.jpg'
     }
   ]
+  productItems.forEach(item => {
+    item.id = productItems.indexOf(item) + 1
+  })
   localStorage.setItem("products", JSON.stringify(productItems))
 } else {
   productItems = JSON.parse(localStorage.getItem('products'))
