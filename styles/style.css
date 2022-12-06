@@ -14,14 +14,54 @@ footer {
 }
 
 .products-grid {
-  width: 80vw;
+  width: 80%;
   margin: auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, auto);
   gap: 20px;
 }
 
 .products-grid>* {
   grid-column: span 1;
   margin: auto;
+  width: 100% !important;
+}
+
+.card>img {
+  width: 80%;
+  height: 20rem;
+  margin: auto;
+}
+
+.modal-body{
+  display: flex;
+}
+
+.modal img {
+  margin: auto;
+  width: 50%;
+}
+
+@media only screen and (max-width: 900px) {
+  .products-grid {
+    width: 90vw;
+    grid-template-columns: 1fr 1fr;
+    margin: auto;
+  }
+}
+@media only screen and (max-width: 650px) {
+  .products-grid {
+    width: 100vw;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .products-grid {
+    width: 80vw;
+    grid-template-columns: 1fr;
+  }
+}
+@media only screen and (max-width: 380px) {
+  .products-grid {
+    width: 100vw;
+  }
 }
