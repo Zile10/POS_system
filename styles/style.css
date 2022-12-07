@@ -53,6 +53,17 @@ footer {
   margin: auto;
   width: 50%;
 }
+.modal-body form {
+  width: 100%;
+}
+.modal-body form input, .modal-body form textarea {
+  width: 100%;
+}
+.modal-body form label {
+  padding-top: 10px;
+  padding-bottom: 5px;
+  font-weight: bold;
+}
 
 @media only screen and (max-width: 900px) {
   .products-grid {

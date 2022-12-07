@@ -9,7 +9,7 @@ products.forEach(product => {
         <img src="${product.imageSrc}" class="card-img-top" alt="${product.itemName}">
         <div class="card-body">
             <h5 class="card-title">${product.itemName}</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <p class="card-text">${product.description}</p>
             
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal-${product.id}">
@@ -24,8 +24,9 @@ products.forEach(product => {
                             <h1 class="modal-title fs-5" id="productModal-${product.id}Label">Modal title</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body flex-column">
                             <img src="${product.imageSrc}" class="card-img-top" alt="${product.itemName}">
+                            <p>${product.description}</p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -39,4 +40,3 @@ products.forEach(product => {
     </div>
 `
 });
-
