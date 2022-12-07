@@ -51,25 +51,42 @@ function loadAdminProductsList() {
       <td><button style="background-color: rgba(255, 255, 255, 0); border: none;" class"del-item" onclick="itemRemove(${product.id - 1})"><img style="height:30px" src="https://img.icons8.com/material-rounded/48/FFFFFF/trash.png"/></button></td>
     </tr>
 
-    <div class="modal fade" id="edit-modal-${product.id}" tabindex="-1" aria-labelledby="edit-modal-${product.id}Label" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="edit-modal-${product.id}Label">Modal title</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="img-container"></div>
-          
-          
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary create-save-btn">Save changes</button>
+    <div style="color: black;" class="modal fade" id="edit-modal-${product.id}" tabindex="-1" aria-labelledby="edit-modal-${product.id}Label" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="edit-modal-${product.id}Label">Edit Product Item</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" style="display: flex; flex-direction: column;">
+            <div class="img-container"></div>
+
+            <form style="width: 100%;">
+              <label for="item-name-${product.id}" style="padding-top: 10px; padding-bottom: 5px; font-weight: bold;">Product Name:</label>
+              <input style="width: 100%;" type="text" id="item-name-${product.id}" name="item-name-${product.id}" placeholder="Enter the name of the product" value="${product.itemName}">
+              <br>
+              <label for="image-src-${product.id}" style="padding-top: 10px; padding-bottom: 5px; font-weight: bold;">Image Source:</label>
+              <input style="width: 100%;" type="text" id="image-src-${product.id}" name="image-src-${product.id}" placeholder="Enter the link/path to the product image" value="${product.imageSrc}">
+              <br>
+              <label for="price-${product.id}" style="padding-top: 10px; padding-bottom: 5px; font-weight: bold;">Price (Rand):</label>
+              <input style="width: 100%;" type="text" id="price-${product.id}" name="price-${product.id}" placeholder="Enter the price of the product" value="${product.price}">
+              <br>
+              <label for="stock-${product.id}" style="padding-top: 10px; padding-bottom: 5px; font-weight: bold;">Stock:</label>
+              <input style="width: 100%;" type="number" id="stock-${product.id}" name="stock-${product.id}" step="1" placeholder="Enter quantity of product in stock" value="${product.stock}">
+              <br>
+              <label for="description-${product.id}" style="padding-top: 10px; padding-bottom: 5px; font-weight: bold;">Item description:</label>
+              <textarea style="width: 100%;" type="text" id="description-${product.id}" name="description-${product.id}" placeholder="Enter a detailed description of the product">${product.description}</textarea>
+            </form>
+
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary create-save-btn">Save changes</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
   `
   })
 }
