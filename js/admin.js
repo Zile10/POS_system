@@ -1,27 +1,58 @@
-const tableBody = document.querySelector('tbody')
+const productsTableBody = document.querySelector('tbody.products-table')
 const createItemBtn = document.querySelector('#create-item-btn')
+const createItemModal = document.querySelector('#createItemModal')
+const createItemForm = createItemModal.querySelector('form')
+// Form Inputs
+const itemNameInput = createItemForm.querySelector('#item-name')
+const itemSrcInput = createItemForm.querySelector('#image-src')
+const priceInput = createItemForm.querySelector('#price')
+const stockInput = createItemForm.querySelector('#stock')
+const descriptionInput = createItemForm.querySelector('#description')
+const createSaveBtn = createItemModal.querySelector('.create-save-btn')
+
 let products = JSON.parse(localStorage.getItem('products'))
 
 console.log(products);
 
-// createItemBtn.addEventListener('click', () => {
-//     const item = new Product({
-//         itemName: 'Polka Dot Socks',
-//         price: 40,
-//         stock: 100,
-//         imageSrc: './assets/images/happy-socks-big-polka-dots-blue-green-red-white.jpg'
-//       });
-//     products.push(item)
-//     localStorage.setItem('products', JSON.stringify(products))
-//     console.log(products);
-// })
+createSaveBtn.addEventListener('click', () => {
+  let product = {
+    itemName: itemNameInput.value,
+    price: priceInput.value,
+    stock: stockInput.value,
+    imageSrc: itemSrcInput.value,
+    description: descriptionInput.value
+  }
+  products.push(product)
+  localStorage.setItem('products', JSON.stringify(products))
+  loadAdminProductsList()
+
+  itemNameInput.value = ''
+  itemSrcInput.value = ''
+  priceInput.value = ''
+  stockInput.value = ''
+  descriptionInput.value = ''
+})
+
+// let item = new Product({
+//   itemName: 'Polka Dot Socks',
+//   price: 40,
+//   stock: 100,
+//   imageSrc: './assets/images/happy-socks-big-polka-dots-blue-green-red-white.jpg'
+// });
+// products.push(item)
+// localStorage.setItem('products', JSON.stringify(products))
+// console.log(products);
+// loadAdminProductsList()
+
+
+
 
 loadAdminProductsList()
 function loadAdminProductsList() {
-  tableBody.innerHTML = ''
+  productsTableBody.innerHTML = ''
   products.forEach(product => {
     product.id = products.indexOf(product) + 1
-    tableBody.innerHTML += `
+    productsTableBody.innerHTML += `
     <tr id="item-row-${product.id}">
       <th scope="row">${product.id}</th>
       <td>${product.itemName}</td>

@@ -3,10 +3,10 @@ let productItems;
 
 class Product{
   constructor(config) {
-    itemName = config.itemName
-    price = config.price
-    stock = config.stock
-    imageSrc = config.imageSrc
+    this.itemName = config.itemName
+    this.price = config.price
+    this.stock = config.stock
+    this.imageSrc = config.imageSrc
   }
 }
 
