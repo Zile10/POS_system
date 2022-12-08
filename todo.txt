@@ -3,4 +3,4 @@ Mark these off using checkmark (✔) before and after, e.g. ✔ 0. Done! ✔:
   ✔1. Create a function that will set/re-set the products into the local storage.✔
   ✔2. Use call this function on admin.js when items are updated via edit button.✔
   3. Look at examples of the "filtering and sorting", and implement this on products page.
-  4. Create Checkout Page
+  ✔4. Create Checkout Page✔
