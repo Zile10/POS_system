@@ -47,7 +47,15 @@ function loadProductCards() {
 }
 loadProductCards()
 
-let checkoutList = []
+let checkoutList = JSON.parse(localStorage.getItem('checkout list')) || []
+localStorage.setItem('checkout list', JSON.stringify(checkoutList))
 function addToCheckout(id) {
-    checkoutList.push(products[id-1]) 
+    if (products[id-1].quantity) {
+        products[id-1].quantity += 1
+        localStorage.setItem('checkout list', JSON.stringify(checkoutList))
+    } else {
+        products[id-1].quantity = 1
+        checkoutList.push(products[id-1])
+        localStorage.setItem('checkout list', JSON.stringify(checkoutList))
+    }
 }
