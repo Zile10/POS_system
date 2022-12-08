@@ -34,60 +34,58 @@ createSaveBtn.addEventListener('click', () => {
 })
 
 
-
-
 loadAdminProductsList()
 function loadAdminProductsList() {
   productsTableBody.innerHTML = ''
   products.forEach(product => {
     product.id = products.indexOf(product) + 1
+    
     productsTableBody.innerHTML += `
-    <tr id="item-row-${product.id}">
-      <th scope="row">${product.id}</th>
-      <td>${product.itemName}</td>
-      <td>R${product.price}</td>
-      <td>${product.stock}</td>
-      <td><button style="background-color: rgba(255, 255, 255, 0); border: none;" class"edit-item" data-bs-toggle="modal" data-bs-target="#edit-modal-${product.id}"><img style="height: 30px" src="https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/64/FFFFFF/external-edit-interface-kiranshastry-lineal-kiranshastry.png"/></button></td>
-      <td><button style="background-color: rgba(255, 255, 255, 0); border: none;" class"del-item" onclick="itemRemove(${product.id - 1})"><img style="height:30px" src="https://img.icons8.com/material-rounded/48/FFFFFF/trash.png"/></button></td>
-    </tr>
+      <tr id="item-row-${product.id}">
+        <th scope="row">${product.id}</th>
+        <td>${product.itemName}</td>
+        <td>R${product.price}</td>
+        <td>${product.stock}</td>
+        <td><button style="background-color: rgba(255, 255, 255, 0); border: none;" class"edit-item" data-bs-toggle="modal" data-bs-target="#edit-modal-${product.id}" id="edit-modal-btn-${product.id}"><img style="height: 30px" src="https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/64/FFFFFF/external-edit-interface-kiranshastry-lineal-kiranshastry.png"/></button></td>
+        <td><button style="background-color: rgba(255, 255, 255, 0); border: none;" class"del-item" onclick="itemRemove(${product.id - 1})"><img style="height:30px" src="https://img.icons8.com/material-rounded/48/FFFFFF/trash.png"/></button></td>
+      </tr>
 
-    <div style="color: black;" class="modal fade" id="edit-modal-${product.id}" tabindex="-1" aria-labelledby="edit-modal-${product.id}Label" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="edit-modal-${product.id}Label">Edit Product Item</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body" style="display: flex; flex-direction: column;">
-            <div class="img-container"></div>
+      <div style="color: black;" class="modal fade" id="edit-modal-${product.id}" tabindex="-1" aria-labelledby="edit-modal-${product.id}Label" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="edit-modal-${product.id}Label">Edit Product Item</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="display: flex; flex-direction: column;">
+              <div class="img-container"></div>
 
-            <form style="width: 100%;">
-              <label for="item-name-${product.id}" style="padding-top: 10px; padding-bottom: 5px; font-weight: bold;">Product Name:</label>
-              <input style="width: 100%;" type="text" id="item-name-${product.id}" name="item-name-${product.id}" placeholder="Enter the name of the product" value="${product.itemName}">
-              <br>
-              <label for="image-src-${product.id}" style="padding-top: 10px; padding-bottom: 5px; font-weight: bold;">Image Source:</label>
-              <input style="width: 100%;" type="text" id="image-src-${product.id}" name="image-src-${product.id}" placeholder="Enter the link/path to the product image" value="${product.imageSrc}">
-              <br>
-              <label for="price-${product.id}" style="padding-top: 10px; padding-bottom: 5px; font-weight: bold;">Price (Rand):</label>
-              <input style="width: 100%;" type="text" id="price-${product.id}" name="price-${product.id}" placeholder="Enter the price of the product" value="${product.price}">
-              <br>
-              <label for="stock-${product.id}" style="padding-top: 10px; padding-bottom: 5px; font-weight: bold;">Stock:</label>
-              <input style="width: 100%;" type="number" id="stock-${product.id}" name="stock-${product.id}" step="1" placeholder="Enter quantity of product in stock" value="${product.stock}">
-              <br>
-              <label for="description-${product.id}" style="padding-top: 10px; padding-bottom: 5px; font-weight: bold;">Item description:</label>
-              <textarea style="width: 100%;" type="text" id="description-${product.id}" name="description-${product.id}" placeholder="Enter a detailed description of the product">${product.description}</textarea>
-            </form>
-
-            
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary create-save-btn">Save changes</button>
+              <form style="width: 100%;">
+                <label for="item-name-${product.id}" style="padding-top: 10px; padding-bottom: 5px; font-weight: bold;">Product Name:</label>
+                <input style="width: 100%;" type="text" id="item-name-${product.id}" name="item-name-${product.id}" placeholder="Enter the name of the product" value="${product.itemName}">
+                <br>
+                <label for="image-src-${product.id}" style="padding-top: 10px; padding-bottom: 5px; font-weight: bold;">Image Source:</label>
+                <input style="width: 100%;" type="text" id="image-src-${product.id}" name="image-src-${product.id}" placeholder="Enter the link/path to the product image" value="${product.imageSrc}">
+                <br>
+                <label for="price-${product.id}" style="padding-top: 10px; padding-bottom: 5px; font-weight: bold;">Price (Rand):</label>
+                <input style="width: 100%;" type="number" id="price-${product.id}" name="price-${product.id}" placeholder="Enter the price of the product" value="${product.price}">
+                <br>
+                <label for="stock-${product.id}" style="padding-top: 10px; padding-bottom: 5px; font-weight: bold;">Stock:</label>
+                <input style="width: 100%;" type="number" id="stock-${product.id}" name="stock-${product.id}" step="1" placeholder="Enter quantity of product in stock" value="${product.stock}">
+                <br>
+                <label for="description-${product.id}" style="padding-top: 10px; padding-bottom: 5px; font-weight: bold;">Item description:</label>
+                <textarea style="width: 100%;" type="text" id="description-${product.id}" name="description-${product.id}" placeholder="Enter a detailed description of the product">${product.description}</textarea>
+              </form>
+              
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary create-save-btn" data-bs-dismiss="modal" onclick="saveItemEdits(this, ${product.id})">Save changes</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  `
+    `
   })
 }
 
@@ -95,5 +93,26 @@ function itemRemove(index) {
   let newProducts = products.slice(0, index).concat(products.slice(index + 1))
   localStorage.setItem('products', JSON.stringify(newProducts))
   products = JSON.parse(localStorage.getItem('products'))
+  loadAdminProductsList()
+}
+
+function saveItemEdits(btn, id) {
+  let product = products[id - 1]
+
+  let itemNameInput = btn.parentElement.parentElement.querySelector(`#item-name-${id}`)
+  let imageSrcInput = btn.parentElement.parentElement.querySelector(`#image-src-${id}`)
+  let priceInput = btn.parentElement.parentElement.querySelector(`#price-${id}`)
+  let stockInput = btn.parentElement.parentElement.querySelector(`#stock-${id}`)
+  let descriptionInput = btn.parentElement.parentElement.querySelector(`#description-${id}`)
+  
+  product.itemName = itemNameInput.value
+  product.imageSrc = imageSrcInput.value
+  product.price = priceInput.value
+  product.stock = stockInput.value
+  product.description = descriptionInput.value
+
+  products = JSON.parse(localStorage.getItem('products'))
+  products[id - 1] = product
+  localStorage.setItem('products', JSON.stringify(products))
   loadAdminProductsList()
 }
