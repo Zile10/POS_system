@@ -12,7 +12,7 @@
 </head>
 <body>
   <header class="h-25">
-    <nav class="navbar navbar-expand-lg bg-primary navbar-dark">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="../index.html">Navbar</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,17 +23,22 @@
             <li class="nav-item">
               <button id="create-item-btn" data-bs-toggle="modal" data-bs-target="#createItemModal">Create New Item</button>
             </li>
-            <li class="nav-item dropdown">
+            <!-- <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="../index.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Home
-              </a>
-              <ul class="dropdown-menu">
+              </a> -->
+              <div class="dropdown">
+                <button class="dropbtn">Home</button>
+                <div class="dropdown-content">
+                  <a href="../index.html#landing">Landing Section</a>
+                  <a href="../index.html#products">Products</a>
+                 
+                </div>
+              </div>
+              <!-- <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="../index.html#landing">Landing Section</a></li>
-                <li><a class="dropdown-item" href="../index.html#products">Products</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </li>
+                <li><a class="dropdown-item" href="../index.html#products">Products</a></li> -->
+
             <li class="nav-item">
               <a class="nav-link" href="./checkout.html">Checkout</a>
             </li>
