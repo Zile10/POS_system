@@ -1,12 +1,16 @@
 const productsContainer = document.querySelector('.products-grid');
 let products = JSON.parse(localStorage.getItem('products'))
 
+let checkoutList = JSON.parse(localStorage.getItem('checkout list')) || [];
+localStorage.setItem('checkout list', JSON.stringify(checkoutList));
 
+loadProductCards()
 function loadProductCards() {
     productsContainer.innerHTML = ''
+    
     products.forEach(product => {
         productsContainer.innerHTML += `
-        <div class="card" style="width: 18rem;">
+        <div class="card bg-dark" style="width: 18rem;">
             <img src="${product.imageSrc}" class="card-img-top" alt="${product.itemName}">
             <div class="card-body">
                 <h5 class="card-title">${product.itemName}</h5>
@@ -45,17 +49,18 @@ function loadProductCards() {
     `
     });
 }
-loadProductCards()
 
-let checkoutList = JSON.parse(localStorage.getItem('checkout list')) || []
-localStorage.setItem('checkout list', JSON.stringify(checkoutList))
+
 function addToCheckout(id) {
-    if (products[id-1].quantity) {
-        products[id-1].quantity += 1
+    checkoutList = JSON.parse(localStorage.getItem('checkout list'))
+    let currentObject = checkoutList.filter(obj => obj.itemName == products[id-1].itemName)[0] || products[id-1]
+    console.log(currentObject);
+    if (checkoutList !== [] && currentObject.hasOwnProperty('quantity')) {
+        currentObject.quantity++
         localStorage.setItem('checkout list', JSON.stringify(checkoutList))
     } else {
-        products[id-1].quantity = 1
-        checkoutList.push(products[id-1])
+        currentObject.quantity = 1
+        checkoutList.push(currentObject)
         localStorage.setItem('checkout list', JSON.stringify(checkoutList))
     }
 }

@@ -16,42 +16,42 @@ if (!localStorage.getItem("products") || localStorage.getItem("products") == '[]
       itemName: 'Polka Dot Socks',
       price: 40,
       stock: 100,
-      imageSrc: './assets/images/happy-socks-big-polka-dots-blue-green-red-white.jpg',
+      imageSrc: './assets/images/products/happy-socks-big-polka-dots-blue-green-red-white.jpg',
       description: `These comfortable socks from 'Happy Socks', are guaranteed to keep your feet satisfied.`
     },
     {
       itemName: 'Cloud Socks',
       price: 40,
       stock: 100,
-      imageSrc: './assets/images/happy-socks-blue-cloud.jpg',
+      imageSrc: './assets/images/products/happy-socks-blue-cloud.jpg',
       description: `These comfortable socks from 'Happy Socks', are guaranteed to keep your feet satisfied.`
     },
     {
       itemName: 'Cat Socks',
       price: 40,
       stock: 100,
-      imageSrc: './assets/images/happy-socks-cats-black.jpg',
+      imageSrc: './assets/images/products/happy-socks-cats-black.jpg',
       description: `These comfortable socks from 'Happy Socks', are guaranteed to keep your feet satisfied.`
     },
     {
       itemName: 'Striped Socks',
       price: 40,
       stock: 100,
-      imageSrc: './assets/images/happy-socks-stripe-socks.jpg',
+      imageSrc: './assets/images/products/happy-socks-stripe-socks.jpg',
       description: `These comfortable socks from 'Happy Socks', are guaranteed to keep your feet satisfied.`
     },
     {
       itemName: 'Banana Socks',
       price: 40,
       stock: 100,
-      imageSrc: './assets/images/happy-socks-cyan-banana.webp',
+      imageSrc: './assets/images/products/happy-socks-cyan-banana.webp',
       description: `These comfortable socks from 'Happy Socks', are guaranteed to keep your feet satisfied.`
     },
     {
       itemName: 'Frog Socks',
       price: 40,
       stock: 100,
-      imageSrc: './assets/images/happy-socks-frogs-black-yellow.jpg',
+      imageSrc: './assets/images/products/happy-socks-frogs-black-yellow.jpg',
       description: `These comfortable socks from 'Happy Socks', are guaranteed to keep your feet satisfied.`
     }
   ]

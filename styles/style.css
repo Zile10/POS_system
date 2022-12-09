@@ -1,6 +1,16 @@
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  height: 80px;
+  z-index: 10;
+}
 
 main {
   min-height: 90vh;
+  background-color: #555;
+  color: #fff;
+  margin-top: 60px;
 }
 
 footer {
@@ -12,6 +22,37 @@ footer {
 .navbar {
   box-shadow: 0 0 4px 2px black;
 }
+
+section {
+  scroll-margin: 60px;
+}
+
+#landing {
+  /* scroll-margin: 100px; */
+  height: 680px;
+  background-image: url(../assets/images/nasa-banner-unsplash.jpg);
+  background-size: cover;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+h3 {
+  text-shadow: 1px 1px 5px black;
+}
+
+.filter-form{
+  padding: 10px 10%;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.filter-form-div {
+  margin: 0 15px;
+}
+
 #create-item-btn {
   background-color: crimson;
   color: #fff;
@@ -38,7 +79,9 @@ footer {
   margin: auto;
   width: 100% !important;
 }
-
+.card {
+  color: #fff;
+}
 .card>img {
   width: 80%;
   height: 20rem;
@@ -88,3 +131,46 @@ footer {
     width: 100vw;
   }
 }
+
+
+/* Ty */
+
+.dropbtn {
+  background-color: rgb(99, 97, 97);
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #494c49;}

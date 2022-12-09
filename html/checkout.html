@@ -12,7 +12,7 @@
 </head>
 <body>
   <header class="h-25">
-    <nav class="navbar navbar-expand-lg bg-primary navbar-dark">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="../index.html">Navbar</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,17 +20,23 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item dropdown">
+            <!-- <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="../index.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Home
-              </a>
-              <ul class="dropdown-menu">
+              </a> -->
+              <div class="dropdown">
+                <button class="dropbtn">Home</button>
+                <div class="dropdown-content">
+                  <a href="../index.html#landing">Landing Section</a>
+                  <a href="../index.html#products">Products</a>
+                 
+                </div>
+              </div>
+              <!-- <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="../index.html#landing">Landing Section</a></li>
-                <li><a class="dropdown-item" href="../index.html#products">Products</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </li>
+                <li><a class="dropdown-item" href="../index.html#products">Products</a></li> -->
+            
+          
             <li class="nav-item">
               <a class="nav-link active" href="./checkout.html">Checkout</a>
             </li>
@@ -44,21 +50,23 @@
   </header>
 
   <main>
-    <table class="table table-dark table-striped">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Item Name</th>
-          <th scope="col">Price</th>
-          <th scope="col">Quantity</th>
-          <!-- <th scope="col">Edit</th> -->
-          <th scope="col">Remove Item</th>
-        </tr>
-      </thead>
-      <tbody class="products-table">
+    <section id="main-section">
+      <table class="table table-dark table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Item Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <!-- <th scope="col">Edit</th> -->
+            <th scope="col">Remove Item</th>
+          </tr>
+        </thead>
+        <tbody class="products-table">
 
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    </section>
   </main>
 
   <footer class="bg-primary"></footer>

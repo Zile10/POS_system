@@ -12,8 +12,6 @@ const createSaveBtn = createItemModal.querySelector('.create-save-btn')
 
 let products = JSON.parse(localStorage.getItem('products'))
 
-console.log(products);
-
 createSaveBtn.addEventListener('click', () => {
   let product = {
     itemName: itemNameInput.value,
