@@ -88,3 +88,8 @@ function sortList() {
   }
   loadCheckoutList()
 }
+
+function purchase() {
+  localStorage.removeItem('checkout list')
+  loadCheckoutList()
+}

@@ -1,4 +1,5 @@
 const productsTableBody = document.querySelector('tbody.products-table')
+const tableFoot = document.querySelector('tfoot')
 const createItemBtn = document.querySelector('#create-item-btn')
 const createItemModal = document.querySelector('#createItemModal')
 const createItemForm = createItemModal.querySelector('form')
@@ -38,6 +39,9 @@ createSaveBtn.addEventListener('click', () => {
 
 loadAdminProductsList()
 function loadAdminProductsList() {
+  let totalSingle = 0
+  let totalPrice = 0;
+  let totalQuantity = 0;
   products = JSON.parse(localStorage.getItem('products')) || []
   switch (sortBtn.value) {
     case 'numUp':
@@ -100,7 +104,32 @@ function loadAdminProductsList() {
         </div>
       </div>
     `
+    totalSingle += product.price
+    totalPrice += product.price * product.stock
+    totalQuantity += product.stock
+
   })
+
+  tableFoot.innerHTML = `
+    <tr>
+      <th>Total:</th>
+      <td>R${eval(totalSingle)}</td>
+      <td>R${eval(totalPrice)}</td>
+      <td>${eval(totalQuantity)} Items</td>
+      <td><button id="create-item-btn" data-bs-toggle="modal" data-bs-target="#createItemModal">Create New Item</button></td>
+      <td><button onclick="reset()" class="bg-danger text-white border-0 purchase">Reset Default</button></td>
+    </tr>
+    <style>
+      button.purchase:active {
+        scale: 0.90;
+        box-shadow: none;
+      }
+      button.purchase {
+        box-shadow: 0 0 5px black;
+      }
+    </style>
+  `
+
 }
 
 function itemRemove(index) {
@@ -145,5 +174,11 @@ function sortList() {
     default:
       break;
   }
+  loadAdminProductsList()
+}
+
+function reset() {
+  localStorage.removeItem('checkout list')
+  localStorage.removeItem('products')
   loadAdminProductsList()
 }

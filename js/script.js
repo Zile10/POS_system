@@ -9,7 +9,7 @@ class Product{
   }
 }
 
-if (!localStorage.getItem("products") || localStorage.getItem("products") == '[]') {
+if (!localStorage.getItem("products")) {
   productItems = [
     {
       itemName: "men's cotton tshirt blue",
