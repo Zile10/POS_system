@@ -2,15 +2,17 @@ const productsTableBody = document.querySelector('tbody.products-table')
 const createItemBtn = document.querySelector('#create-item-btn')
 const createItemModal = document.querySelector('#createItemModal')
 const createItemForm = createItemModal.querySelector('form')
+const sortBtn = document.querySelector('.sort-btn')
 // Form Inputs
 const itemNameInput = createItemForm.querySelector('#item-name')
 const itemSrcInput = createItemForm.querySelector('#image-src')
 const priceInput = createItemForm.querySelector('#price')
 const stockInput = createItemForm.querySelector('#stock')
-const descriptionInput = createItemForm.querySelector('#description')
+const colorInput = createItemForm.querySelector('#color')
+const genderInput = createItemForm.querySelector('#gender')
 const createSaveBtn = createItemModal.querySelector('.create-save-btn')
 
-let products = JSON.parse(localStorage.getItem('products'))
+let products = JSON.parse(localStorage.getItem('products')) || []
 
 createSaveBtn.addEventListener('click', () => {
   let product = {
@@ -18,7 +20,8 @@ createSaveBtn.addEventListener('click', () => {
     price: priceInput.value,
     stock: stockInput.value,
     imageSrc: itemSrcInput.value,
-    description: descriptionInput.value
+    color: colorInput.value,
+    gender: genderInput.value,    
   }
   products.push(product)
   localStorage.setItem('products', JSON.stringify(products))
@@ -28,12 +31,25 @@ createSaveBtn.addEventListener('click', () => {
   itemSrcInput.value = ''
   priceInput.value = ''
   stockInput.value = ''
-  descriptionInput.value = ''
+  colorInput.value = ''
+  genderInput.value = ''
 })
 
 
 loadAdminProductsList()
 function loadAdminProductsList() {
+  products = JSON.parse(localStorage.getItem('products')) || []
+  switch (sortBtn.value) {
+    case 'numUp':
+        products.sort((a, b) => a.price - b.price)
+      break;
+    case 'numDown':
+        products.sort((a, b) => b.price - a.price)
+      break;  
+    default:
+      break;
+  }
+
   productsTableBody.innerHTML = ''
   products.forEach(product => {
     product.id = products.indexOf(product) + 1
@@ -107,10 +123,27 @@ function saveItemEdits(btn, id) {
   product.imageSrc = imageSrcInput.value
   product.price = priceInput.value
   product.stock = stockInput.value
-  product.description = descriptionInput.value
+  product.color = colorInput.value
+  product.gender = genderInput.value
 
   products = JSON.parse(localStorage.getItem('products'))
   products[id - 1] = product
   localStorage.setItem('products', JSON.stringify(products))
+  loadAdminProductsList()
+}
+
+function sortList() {
+  switch (sortBtn.value) {
+    case 'numUp':
+        sortBtn.value = 'numDown'
+        sortBtn.innerHTML = 'Price: <img width="24px" src="https://img.icons8.com/fluency-systems-regular/48/null/sort-numeric-up.png"/>'
+      break;
+    case 'numDown':
+        sortBtn.value = 'numUp'
+        sortBtn.innerHTML = 'Price: <img src="https://img.icons8.com/material-outlined/24/null/numerical-sorting-12.png">'
+      break;  
+    default:
+      break;
+  }
   loadAdminProductsList()
 }

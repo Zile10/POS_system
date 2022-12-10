@@ -13,30 +13,25 @@
   <header>
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="./index.html">Navbar</a>
+        <a class="navbar-brand" href="./index.html">ClothCuts</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <!-- <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle active" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Home
-              </a> -->
-              <div class="dropdown">
-                <button class="dropbtn bg-dark">Home</button>
-                <div class="dropdown-content">
-                  <a href="#landing">Landing Section</a>
-                  <a href="#products">Products</a>
-                 
-                </div>
-              </div>
-              <!-- <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#landing">Landing Section</a></li>
-                <li><a class="dropdown-item" href="#products">Products</a></li>
 
-              </ul> -->
-            </li>
+            <li class="nav-item dropdown">
+              <a href="../index.html" class="dropbtn nav-link bg-dark active">Home</a>
+              <ul class="dropdown-content dropdown-menu">
+                <li>
+                  <a href="../index.html#landing" class="dropdown-item">Landing Section</a>
+                </li>
+                <li>
+                  <a href="../index.html#products" class="dropdown-item">Products</a>
+                </li>
+              </ul>
+            </li>            
+
             <li class="nav-item">
               <a class="nav-link" href="./html/checkout.html">Checkout</a>
             </li>
@@ -51,40 +46,39 @@
 
   <main>
     <section id="landing">
-      <h3>Keeping The world Happy, with World Wide Shipping</h3>
-      <h3>Happy Socks! All play. No work</h3>
+      <h2>Keeping The World Happy, with Free World Wide Shipping.</h2>
+      <h3>ClothCuts! Clothed in the Finest</h3>
 
     </section>
     <section id="products">
       <form action="" class="m-auto filter-form bg-black">
-        <div class="filter-form-div">
+        <div class="filter-form-price">
           <label for="price-range">Price Range</label>
-          <select name="price-range" id="price-range" class="m-auto">
-            <option value="">R0-R30</option>
-            <option value="">R0-R30</option>
-            <option value="">R0-R30</option>
-            <option value="">R0-R30</option>
+          <select name="price-range" id="price-range" class="m-auto" onchange="filterItems()">
+            <option value="any">Any</option>
+            <option value="1500">&#62 R1500</option>
+            <option value="500">&#62 R500</option>
+            <option value="200">&#62 R200</option>
           </select>
         </div>
 
-        <div class="filter-form-div">
-          <label for="base-colour">Base Colour</label>
-          <select name="base-colour" id="base-colour" class="m-auto">
-            <option value="">Red</option>
-            <option value="">Blue</option>
-            <option value="">Green</option>
-            <option value="">Black</option>
-            <option value="">Rainbow</option>
+        <div class="filter-form-color">
+          <label for="base-color">Base Colour</label>
+          <select name="base-color" id="base-color" class="m-auto" onchange="filterItems()">
+            <option value="any">Any</option>
+            <option value="black">Black</option>
+            <option value="brown">Brown</option>
+            <option value="blue">Blue</option>
+            <option value="grey">Grey</option>
           </select>
         </div>
 
-        <div class="filter-form-div">
-          <label for="price-range2">Price Range</label>
-          <select name="price-range2" id="price-range2" class="m-auto">
-            <option value="">Hi</option>
-            <option value="">fe</option>
-            <option value="">dw</option>
-            <option value="">fef</option>
+        <div class="filter-form-gender">
+          <label for="gender">Gender</label>
+          <select name="gender" id="gender" class="m-auto" onchange="filterItems()">
+            <option value="any">Any</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
           </select>
         </div>
       </form>
@@ -99,7 +93,7 @@
     </section>
   </main>
 
-  <footer class="bg-primary">
+  <footer class="bg-dark">
     <div >
       <p>f</p>
     </div>
