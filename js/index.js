@@ -8,9 +8,12 @@ let products = JSON.parse(localStorage.getItem('products'))
 let checkoutList = JSON.parse(localStorage.getItem('checkout list')) || [];
 localStorage.setItem('checkout list', JSON.stringify(checkoutList));
 
+let filteredByPrice;
+let filteredByColor;
+let filteredByGender;
+
 loadProductCards(products)
 function loadProductCards(filteredProducts) {
-    console.log('products');
     
     // products = JSON.parse(localStorage.getItem('products'))
 
@@ -84,49 +87,11 @@ function addToCheckout(id) {
 
 
 function filterItems() {
-    let result = filterGender(filterColor(filterPrice()))
-    // products = 
-    // loadProductCards(result)
-}
+    filteredByPrice = products.filter(item => item.price < priceRange.value || priceRange.value == 'any')
+    filteredByColor = products.filter(item => item.color == baseColor.value || baseColor.value == 'any')
+    filteredByGender = products.filter(item => item.gender == gender.value || gender.value == 'any')
 
-function filterPrice(items) {
-    let filteredByPrice;
-    switch (priceRange.value) {
-        case 'any':
-            filteredByPrice = items
-            break;
-        default:
-            filteredByPrice = items.filter(item => item.price < eval(priceRange.value))
-            break;
-    }
-    return filteredByPrice
-}
+    let finalResult = filteredByPrice.filter(item => filteredByColor.includes(item) && filteredByGender.includes(item))
 
-function filterColor(items) {
-    let filteredByColor;
-    console.log(items);
-    // switch (baseColor.value) {
-    //     case 'any':
-    //         filteredByColor = items
-    //         break;
-    
-    //     default:
-    //         filteredByColor = items.filter(item => item.color == baseColor.value);
-    //         break;
-    // }
-    return filteredByColor
-}
-
-function filterGender(items) {
-    let filteredByGender;
-    switch (gender.value) {
-        case 'any':
-            filteredByGender = items
-            break;
-    
-        default:
-            filteredByGender = items.filter(item => item.gender == gender.value)
-            break;
-    }
-    return filteredByGender
-}
+    loadProductCards(finalResult)
+} 

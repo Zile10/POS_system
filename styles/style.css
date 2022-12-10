@@ -82,6 +82,14 @@ header, header nav {
   font-weight: bold;
 }
 
+.navbar-brand {
+  margin-left: 10px;
+}
+
+.navbar-brand:hover {
+  scale: 1.1;
+}
+
 /* End Nav */
 
 section {
@@ -154,10 +162,11 @@ h2, h3 {
 }
 .card {
   color: #fff;
-  height: 29rem;
+  min-height: 29rem;
+  max-width: 20rem;
 }
 .card>img {
-  /* width: 80%; */
+  width: 100%;
   /* height: 20rem; */
   margin: auto;
 }
