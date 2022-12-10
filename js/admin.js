@@ -180,5 +180,5 @@ function sortList() {
 function reset() {
   localStorage.removeItem('checkout list')
   localStorage.removeItem('products')
-  loadAdminProductsList()
+  location.reload();
 }
